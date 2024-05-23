@@ -1,0 +1,27 @@
+﻿@model IEnumerable<AspMVCHomeTask.Models.Product>
+
+<div class="container">
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top" src="@Url.Content(product.ImagePath)" alt="@product.Name">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p class="card-text">$@product.Price</p>
+                        <button class="btn btn-primary add-to-cart"
+                                data-id="@product.Id"
+                                data-price="@product.Price"
+                                data-name="@product.Name"
+                                data-image="@Url.Content(product.ImagePath)">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script src="~/assets/js/index.js"></script>
